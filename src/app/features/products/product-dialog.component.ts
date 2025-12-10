@@ -16,6 +16,7 @@ import { Product } from '../../models/product.model';
   standalone: true,
   imports: [ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButtonModule, NgIf],
   templateUrl: './product-dialog.component.html',
+  styleUrl: './product-dialog.component.scss',
 })
 export class ProductDialogComponent {
   readonly isEdit: boolean;

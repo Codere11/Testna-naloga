@@ -1,0 +1,32 @@
+:host {
+  display: block;
+}
+
+mat-dialog-content {
+  padding-top: 8px;
+}
+
+form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+@media (min-width: 640px) {
+  form {
+    grid-template-columns: 1fr 1fr;
+  }
+  /* Description and image span full width on larger screens */
+  mat-form-field:has(textarea),
+  mat-form-field:nth-last-child(1) {
+    grid-column: 1 / -1;
+  }
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+mat-dialog-actions {
+  padding: 16px 24px 20px;
+}

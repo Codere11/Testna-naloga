@@ -8,6 +8,7 @@ import { NgIf } from '@angular/common';
   standalone: true,
   imports: [MatButtonModule, NgIf],
   templateUrl: './confirm-dialog.component.html',
+  styleUrl: './confirm-dialog.component.scss',
 })
 export class ConfirmDialogComponent {
   constructor(
