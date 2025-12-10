@@ -1,3 +1,7 @@
+.details-page { padding: 0 16px; }
+.page-header { max-width: 960px; margin: 0 auto; padding-top: 8px; }
+.content-wrap { max-width: 960px; margin: 0 auto; }
+
 .product-card { margin: 12px 0 16px; }
 .product { display: grid; grid-template-columns: 120px 1fr; gap: 16px; align-items: start; }
 .product img { width: 120px; height: 120px; object-fit: contain; border-radius: 8px; background:#fff; }
@@ -5,11 +9,17 @@
 .product .meta { display:flex; gap:12px; align-items: center; margin-bottom:8px; }
 .product .desc { margin:0; color:#444; }
 
-.comments-header { display:flex; justify-content: space-between; align-items:center; margin: 8px 0; }
+.comments-header { display:flex; justify-content: space-between; align-items:center; margin: 8px 0 12px; }
 
-.comment { display:grid; grid-template-columns: 1fr auto; gap:8px; width:100%; }
-.comment .author { font-weight: 600; }
-.comment .content { white-space: pre-wrap; }
-.comment .actions { display:flex; gap:4px; align-items:center; }
+.comments { display: grid; gap: 12px; }
+.comment-card { padding: 12px 16px; }
+.comment-header { display:flex; align-items:center; gap:12px; }
+.avatar { width: 32px; height: 32px; border-radius: 50%; background:#E3F2FD; color:#1565C0; display:flex; align-items:center; justify-content:center; font-weight:600; }
+.meta { line-height: 1.1; }
+.meta .author { font-weight: 600; }
+.meta .date { font-size: 12px; color:#666; }
+.spacer { flex: 1 1 auto; }
+.actions { display:flex; gap:4px; }
+.comment-content { margin-top: 8px; white-space: pre-wrap; }
 
-.empty { text-align:center; padding: 16px; color:#666; }
+.empty { text-align:center; padding: 24px; color:#666; }
