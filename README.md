@@ -1,59 +1,82 @@
-# UscomCatalog
+# Uscom Catalog (Angular)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.6.
+Aplikacija za pregled in lokalno urejanje izdelkov z integracijo javnega API-ja [Fake Store API](https://fakestoreapi.com) in z dodatno funkcionalnostjo lokalnih komentarjev. Zgrajena je z Angular (standalone komponentami), Angular Material, RxJS in Reactive Forms.
 
-## Development server
+## Funkcionalnosti
+- Seznam izdelkov (slike, naziv, kategorija, cena, ocena)
+  - Iskanje po nazivu/kategoriji, klient­ska paginacija in sortiranje (Material tabela + Paginator)
+  - Stanja nalaganja (spinner) in napak (Material snackbar)
+- Urejanje/dodajanje/brisanje izdelkov (lokalno)
+  - Material dialog z reaktivnim obrazcem, validacije, snackbar obvestila
+  - Lokalni ID-ji so negativni; spremembe ne gredo na zunanji API
+- Podrobnosti izdelka
+  - Kartica izdelka z osnovnimi podatki
+  - Komentarji (lokalno): dodaj/uredi/izbriši, dialog z validacijo
+- Lokalizacija UI
+  - Besedilo v slovenščini, `LOCALE_ID=sl`, valute v EUR, prilagojen Material Paginator
 
-To start a local development server, run:
+## Tehnologije in arhitektura
+- Angular 19 (standalone), Angular Material, RxJS/Signals
+- Mapa `state/` vsebuje majhne stores (ProductsStore, CommentsStore)
+- Mapa `features/` za zaslone/komponente (seznam, podrobnosti, dialogi)
+- Mapa `core/services/` za HTTP storitve (Fake Store API)
 
+## Zagon projekta (lokalno)
+1) Namesti odvisnosti:
 ```bash
-ng serve
+npm install
+```
+2) Zaženi razvojni strežnik:
+```bash
+npm start
+```
+Aplikacija bo na `http://localhost:4200/`. Ob spremembah se samodejno osveži.
+
+## Gradnja (build)
+```bash
+npm run build
+```
+Artefakti so v mapi `dist/`. Privzeto se uporablja produkcijska optimizacija.
+
+## Kakovost in najboljše prakse
+- Reaktivni obrazci z jasno validacijo in onemogočenim gumbom “Shrani”, dokler obrazec ni veljaven
+- Dosledna uporaba Angular Material (Toolbar, Table, Dialog, FormField/Input, Paginator, SnackBar, Icons)
+- Ločitev odgovornosti: API servis ➜ store ➜ UI
+- Enotna UX pravila: centered naslovi dialogov, konsistentni razmaki, jasna stanja (prazno/nalaganje/napaka)
+
+## Omejitve
+- Fake Store API omogoča samo branje. Vse spremembe (dodajanje, urejanje, brisanje) so **lokalne** in niso persistirane na API.
+- (Po želji) je možno razširiti s shranjevanjem lokalnih sprememb v `localStorage`.
+
+## Struktura projektnih map (izsek)
+```
+src/app
+  ├─ core/
+  │   └─ services/product.service.ts
+  ├─ features/
+  │   ├─ products/
+  │   │   ├─ products-list.component.*
+  │   │   ├─ product-dialog.component.*
+  │   │   ├─ product-details.component.*
+  │   └─ comments/
+  │       └─ comment-dialog.component.*
+  ├─ models/
+  │   ├─ product.model.ts
+  │   └─ comment.model.ts
+  └─ state/
+      ├─ products.store.ts
+      └─ comments.store.ts
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
+## Razvojni ukazi (Angular CLI)
+- Ustvari komponento:
 ```bash
-ng generate component component-name
+ng generate component my-component
 ```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
+- Pomoč in seznam shem:
 ```bash
 ng generate --help
 ```
 
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Licenca
+Projekt je namenjen tehnični nalogi/demonstraciji in se lahko prosto uporablja v ta namen.
