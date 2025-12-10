@@ -3,6 +3,9 @@
 /* Comfortable padding inside dialog */
 mat-dialog-content { padding: 16px 24px 8px; }
 
+/* Constrain form width to create left/right whitespace */
+.form-container { max-width: 520px; margin: 0 auto; }
+
 /* Simple, robust vertical layout with consistent spacing */
 form {
   display: flex;
@@ -14,3 +17,5 @@ mat-form-field { width: 100%; }
 
 /* Actions with generous spacing */
 mat-dialog-actions { padding: 16px 24px 20px; }
+.actions { gap: 12px; }
+.actions button { min-width: 120px; }
