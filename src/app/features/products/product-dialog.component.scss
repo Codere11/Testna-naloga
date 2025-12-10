@@ -2,6 +2,7 @@
 
 /* Comfortable padding inside dialog */
 mat-dialog-content { padding: 16px 24px 8px; }
+.dialog-title { text-align: center; margin: 0 0 8px; }
 
 /* Constrain form width to create left/right whitespace */
 .form-container { max-width: 520px; margin: 0 auto; }
