@@ -4,7 +4,7 @@
   <input matInput placeholder="Naziv ali kategorija" [ngModel]="query()" (ngModelChange)="query.set($event)" />
 </mat-form-field>
 
-  <div class="table-wrapper" *ngIf="!store.loading(); else loadingTpl">
+<div class="table-wrapper" *ngIf="!store.loading(); else loadingTpl" aria-live="polite">
     <table mat-table [dataSource]="page()" class="mat-elevation-z1">
       <!-- Image -->
       <ng-container matColumnDef="image">
@@ -38,9 +38,28 @@
         <td mat-cell *matCellDef="let p"> {{ p.rating?.rate ?? '—' }} ({{ p.rating?.count ?? 0 }}) </td>
       </ng-container>
 
+      <!-- Actions -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef style="text-align:right"> Dejanje </th>
+        <td mat-cell *matCellDef="let p" style="text-align:right">
+          <button mat-icon-button color="primary" aria-label="Uredi" (click)="openEditDialog(p)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" aria-label="Izbriši" (click)="confirmDelete(p.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
     </table>
+
+    <div style="display:flex; justify-content:flex-end; margin-top:8px;">
+      <button mat-fab color="primary" aria-label="Dodaj izdelek" (click)="openCreateDialog()">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
 
     <mat-paginator
       [length]="total()"
