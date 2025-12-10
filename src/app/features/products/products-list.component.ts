@@ -65,6 +65,7 @@ export class ProductsListComponent implements OnInit {
   });
 
   displayedColumns = ['image', 'title', 'category', 'price', 'rating', 'actions'];
+  trackById = (_: number, x: { id: number }) => x.id;
 
 constructor(public store: ProductsStore, private snack: MatSnackBar, private dialog: MatDialog) {
     // Show snackbar on load error
