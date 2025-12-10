@@ -9,18 +9,25 @@ mat-dialog-content {
 form {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 12px;
+  gap: 16px; /* explicit spacing between fields */
+}
+
+/* Provide spacing even if grid gap is not applied due to wrappers */
+.mat-mdc-form-field {
+  margin: 8px 0; /* fallback spacing for all inputs */
+  display: block;
 }
 
 @media (min-width: 640px) {
   form {
     grid-template-columns: 1fr 1fr;
   }
-  /* Description and image span full width on larger screens */
-  mat-form-field:has(textarea),
-  mat-form-field:nth-last-child(1) {
-    grid-column: 1 / -1;
-  }
+}
+
+/* Make description and image full-width without :has() for broader support */
+mat-form-field[formControlName="description"],
+mat-form-field[formControlName="image"] {
+  grid-column: 1 / -1;
 }
 
 mat-form-field {
