@@ -1,5 +1,5 @@
 import { Component, OnInit, computed, signal, effect } from '@angular/core';
-import { NgIf, NgFor, DecimalPipe } from '@angular/common';
+import { NgIf, NgFor, DecimalPipe, CurrencyPipe } from '@angular/common';
 import { MatTableModule } from '@angular/material/table';
 import { FormsModule } from '@angular/forms';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
@@ -24,6 +24,7 @@ import { Product } from '../../models/product.model';
     MatProgressSpinnerModule,
     MatSnackBarModule,
     DecimalPipe,
+    CurrencyPipe,
   ],
   templateUrl: './products-list.component.html',
   styleUrl: './products-list.component.scss',

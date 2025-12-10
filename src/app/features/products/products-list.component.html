@@ -1,14 +1,14 @@
 <div class="container">
-  <mat-form-field appearance="outline" class="search-field">
-    <mat-label>Search products</mat-label>
-<input matInput placeholder="Title or category" [ngModel]="query()" (ngModelChange)="query.set($event)" />
-  </mat-form-field>
+<mat-form-field appearance="outline" class="search-field">
+  <mat-label>Išči izdelke</mat-label>
+  <input matInput placeholder="Naziv ali kategorija" [ngModel]="query()" (ngModelChange)="query.set($event)" />
+</mat-form-field>
 
   <div class="table-wrapper" *ngIf="!store.loading(); else loadingTpl">
     <table mat-table [dataSource]="page()" class="mat-elevation-z1">
       <!-- Image -->
       <ng-container matColumnDef="image">
-        <th mat-header-cell *matHeaderCellDef> Image </th>
+<th mat-header-cell *matHeaderCellDef> Slika </th>
         <td mat-cell *matCellDef="let p">
           <img [src]="p.image" [alt]="p.title" width="40" height="40" />
         </td>
@@ -16,25 +16,25 @@
 
       <!-- Title -->
       <ng-container matColumnDef="title">
-        <th mat-header-cell *matHeaderCellDef> Title </th>
+<th mat-header-cell *matHeaderCellDef> Naziv </th>
         <td mat-cell *matCellDef="let p"> {{ p.title }} </td>
       </ng-container>
 
       <!-- Category -->
       <ng-container matColumnDef="category">
-        <th mat-header-cell *matHeaderCellDef> Category </th>
+<th mat-header-cell *matHeaderCellDef> Kategorija </th>
         <td mat-cell *matCellDef="let p"> {{ p.category }} </td>
       </ng-container>
 
       <!-- Price -->
       <ng-container matColumnDef="price">
-        <th mat-header-cell *matHeaderCellDef> Price </th>
-        <td mat-cell *matCellDef="let p"> ${{ p.price | number: '1.2-2' }} </td>
+<th mat-header-cell *matHeaderCellDef> Cena </th>
+<td mat-cell *matCellDef="let p"> {{ p.price | currency:'EUR':'symbol':'1.2-2':'sl' }} </td>
       </ng-container>
 
       <!-- Rating -->
       <ng-container matColumnDef="rating">
-        <th mat-header-cell *matHeaderCellDef> Rating </th>
+<th mat-header-cell *matHeaderCellDef> Ocena </th>
         <td mat-cell *matCellDef="let p"> {{ p.rating?.rate ?? '—' }} ({{ p.rating?.count ?? 0 }}) </td>
       </ng-container>
 

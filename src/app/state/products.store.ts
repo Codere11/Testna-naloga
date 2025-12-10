@@ -28,7 +28,7 @@ export class ProductsStore {
         this.loading.set(false);
       },
       error: (err) => {
-        this.error.set('Failed to load products. Please try again.');
+this.error.set('Napaka pri nalaganju izdelkov. Poskusite znova.');
         this.loading.set(false);
         console.error(err);
       },
