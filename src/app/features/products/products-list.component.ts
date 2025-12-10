@@ -1,5 +1,5 @@
-import { Component, OnInit, computed, signal, effect } from '@angular/core';
-import { NgIf, NgFor, DecimalPipe, CurrencyPipe } from '@angular/common';
+import { Component, OnInit, computed, signal, effect, ChangeDetectionStrategy } from '@angular/core';
+import { NgIf, NgFor, CurrencyPipe } from '@angular/common';
 import { MatTableModule } from '@angular/material/table';
 import { FormsModule } from '@angular/forms';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
@@ -19,6 +19,7 @@ import { ConfirmDialogComponent } from '../../shared/confirm-dialog/confirm-dial
 @Component({
   selector: 'app-products-list',
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     NgIf,
     NgFor,
@@ -33,7 +34,6 @@ import { ConfirmDialogComponent } from '../../shared/confirm-dialog/confirm-dial
     MatIconModule,
     MatDialogModule,
     RouterLink,
-    DecimalPipe,
     CurrencyPipe,
   ],
   templateUrl: './products-list.component.html',
@@ -64,7 +64,8 @@ export class ProductsListComponent implements OnInit {
     return this.filtered().slice(start, start + this.pageSize());
   });
 
-displayedColumns = ['image', 'title', 'category', 'price', 'rating', 'actions'];
+  displayedColumns = ['image', 'title', 'category', 'price', 'rating', 'actions'];
+  trackById = (_: number, x: { id: number }) => x.id;
 
 constructor(public store: ProductsStore, private snack: MatSnackBar, private dialog: MatDialog) {
     // Show snackbar on load error
