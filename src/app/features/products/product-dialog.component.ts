@@ -1,4 +1,4 @@
-import { Component, Inject, ChangeDetectionStrategy } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { ReactiveFormsModule, FormBuilder, Validators, FormGroup, NonNullableFormBuilder } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -14,7 +14,6 @@ import { Product } from '../../models/product.model';
 @Component({
   selector: 'app-product-dialog',
   standalone: true,
-  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButtonModule, NgIf],
   templateUrl: './product-dialog.component.html',
   styleUrl: './product-dialog.component.scss',

@@ -1,15 +1,9 @@
 import { Routes } from '@angular/router';
 import { ProductsListComponent } from './features/products/products-list.component';
+import { ProductDetailsComponent } from './features/products/product-details.component';
 
 export const routes: Routes = [
   { path: '', component: ProductsListComponent },
-  {
-    path: 'products/:id',
-    loadComponent: () =>
-      import('./features/products/product-details.component').then((m) => m.ProductDetailsComponent),
-    resolve: {
-      products: () => import('./resolvers/products.resolver').then((m) => m.productsResolver),
-    },
-  },
+  { path: 'products/:id', component: ProductDetailsComponent },
   { path: '**', redirectTo: '' },
 ];

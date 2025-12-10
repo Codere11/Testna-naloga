@@ -1,5 +1,5 @@
-import { Component, OnInit, computed, inject, ChangeDetectionStrategy } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnInit, computed, inject } from '@angular/core';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
@@ -17,9 +17,9 @@ import { CommentDialogComponent } from '../comments/comment-dialog.component';
 @Component({
   selector: 'app-product-details',
   standalone: true,
-  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     CommonModule,
+    RouterLink,
     MatCardModule,
     MatButtonModule,
     MatIconModule,
