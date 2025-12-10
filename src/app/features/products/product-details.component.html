@@ -1,0 +1,50 @@
+<div class="container" *ngIf="product as p">
+  <button mat-stroked-button color="primary" (click)="back()">
+    <mat-icon>arrow_back</mat-icon>
+    Nazaj na seznam
+  </button>
+
+  <mat-card class="product-card">
+    <div class="product">
+      <img [src]="p.image" [alt]="p.title" />
+      <div class="info">
+        <h2>{{ p.title }}</h2>
+        <div class="meta">
+          <span class="price">{{ p.price | currency:'EUR':'symbol':'1.2-2':'sl' }}</span>
+          <span class="category">{{ p.category }}</span>
+        </div>
+        <p class="desc">{{ p.description }}</p>
+      </div>
+    </div>
+  </mat-card>
+
+  <div class="comments-header">
+    <h3>Komentarji</h3>
+    <button mat-flat-button color="primary" (click)="addComment()">
+      <mat-icon>add</mat-icon>
+      Dodaj komentar
+    </button>
+  </div>
+
+  <mat-card>
+    <mat-list *ngIf="comments.length; else empty">
+      <mat-list-item *ngFor="let c of comments">
+        <div class="comment">
+          <div class="author">{{ c.author }}</div>
+          <div class="content">{{ c.content }}</div>
+          <div class="actions">
+            <button mat-icon-button color="primary" (click)="editComment(c)">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" (click)="deleteComment(c)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+        </div>
+      </mat-list-item>
+    </mat-list>
+    <ng-template #empty>
+      <div class="empty">Ni komentarjev. Dodaj prvega.</div>
+    </ng-template>
+  </mat-card>
+</div>

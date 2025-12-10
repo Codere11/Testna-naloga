@@ -1,0 +1,6 @@
+.dialog-title { text-align: center; margin: 0 0 8px; }
+.form-container { max-width: 520px; margin: 0 auto; }
+form { display: flex; flex-direction: column; row-gap: 16px; }
+mat-dialog-actions { padding: 16px 24px 20px; }
+.actions { gap: 12px; }
+.actions button { min-width: 120px; }

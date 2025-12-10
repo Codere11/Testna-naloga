@@ -42,6 +42,9 @@
       <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef style="text-align:right"> Dejanje </th>
         <td mat-cell *matCellDef="let p" style="text-align:right">
+          <a mat-icon-button color="primary" [routerLink]="['/products', p.id]" aria-label="Podrobnosti">
+            <mat-icon>open_in_new</mat-icon>
+          </a>
           <button mat-icon-button color="primary" aria-label="Uredi" (click)="openEditDialog(p)">
             <mat-icon>edit</mat-icon>
           </button>

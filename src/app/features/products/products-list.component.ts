@@ -6,6 +6,7 @@ import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { RouterLink } from '@angular/router';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
@@ -31,6 +32,7 @@ import { ConfirmDialogComponent } from '../../shared/confirm-dialog/confirm-dial
     MatButtonModule,
     MatIconModule,
     MatDialogModule,
+    RouterLink,
     DecimalPipe,
     CurrencyPipe,
   ],
@@ -125,7 +127,7 @@ constructor(public store: ProductsStore, private snack: MatSnackBar, private dia
         width: '420px',
         data: {
           title: 'Izbrišem izdelek?',
-          message: 'Brisanje je samo lokalno in povratno ni možno.',
+          message: 'Brisanje je samo lokalno.',
           confirmLabel: 'Izbriši',
           cancelLabel: 'Prekliči',
         },

@@ -1,0 +1,15 @@
+.product-card { margin: 12px 0 16px; }
+.product { display: grid; grid-template-columns: 120px 1fr; gap: 16px; align-items: start; }
+.product img { width: 120px; height: 120px; object-fit: contain; border-radius: 8px; background:#fff; }
+.product .info h2 { margin: 0 0 4px; }
+.product .meta { display:flex; gap:12px; align-items: center; margin-bottom:8px; }
+.product .desc { margin:0; color:#444; }
+
+.comments-header { display:flex; justify-content: space-between; align-items:center; margin: 8px 0; }
+
+.comment { display:grid; grid-template-columns: 1fr auto; gap:8px; width:100%; }
+.comment .author { font-weight: 600; }
+.comment .content { white-space: pre-wrap; }
+.comment .actions { display:flex; gap:4px; align-items:center; }
+
+.empty { text-align:center; padding: 16px; color:#666; }
