@@ -1,39 +1,16 @@
-:host {
-  display: block;
-}
+:host { display: block; }
 
-mat-dialog-content {
-  padding-top: 8px;
-}
+/* Comfortable padding inside dialog */
+mat-dialog-content { padding: 16px 24px 8px; }
 
+/* Simple, robust vertical layout with consistent spacing */
 form {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px; /* explicit spacing between fields */
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
 }
 
-/* Provide spacing even if grid gap is not applied due to wrappers */
-.mat-mdc-form-field {
-  margin: 8px 0; /* fallback spacing for all inputs */
-  display: block;
-}
+mat-form-field { width: 100%; }
 
-@media (min-width: 640px) {
-  form {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-/* Make description and image full-width without :has() for broader support */
-mat-form-field[formControlName="description"],
-mat-form-field[formControlName="image"] {
-  grid-column: 1 / -1;
-}
-
-mat-form-field {
-  width: 100%;
-}
-
-mat-dialog-actions {
-  padding: 16px 24px 20px;
-}
+/* Actions with generous spacing */
+mat-dialog-actions { padding: 16px 24px 20px; }

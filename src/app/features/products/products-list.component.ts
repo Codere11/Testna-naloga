@@ -84,7 +84,8 @@ constructor(public store: ProductsStore, private snack: MatSnackBar, private dia
   openEditDialog(p: Product) {
     this.dialog
       .open(ProductDialogComponent, {
-        width: '520px',
+        width: '640px',
+        maxWidth: '90vw',
         data: { mode: 'edit', product: p },
       })
       .afterClosed()
@@ -102,7 +103,8 @@ constructor(public store: ProductsStore, private snack: MatSnackBar, private dia
   openCreateDialog() {
     this.dialog
       .open(ProductDialogComponent, {
-        width: '520px',
+        width: '640px',
+        maxWidth: '90vw',
         data: { mode: 'create' },
       })
       .afterClosed()

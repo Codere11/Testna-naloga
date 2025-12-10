@@ -1,27 +1,27 @@
 <h2 mat-dialog-title>{{ isEdit ? 'Uredi izdelek' : 'Dodaj izdelek' }}</h2>
 <div mat-dialog-content>
   <form [formGroup]="form" (ngSubmit)="submit()">
-    <mat-form-field appearance="outline" style="width:100%">
+    <mat-form-field appearance="outline">
       <mat-label>Naziv</mat-label>
       <input matInput formControlName="title" required />
     </mat-form-field>
 
-    <mat-form-field appearance="outline" style="width:100%">
+    <mat-form-field appearance="outline">
       <mat-label>Cena (EUR)</mat-label>
       <input matInput type="number" step="0.01" formControlName="price" required />
     </mat-form-field>
 
-    <mat-form-field appearance="outline" style="width:100%">
+    <mat-form-field appearance="outline">
       <mat-label>Kategorija</mat-label>
       <input matInput formControlName="category" required />
     </mat-form-field>
 
-    <mat-form-field appearance="outline" style="width:100%">
+    <mat-form-field appearance="outline">
       <mat-label>Opis</mat-label>
       <textarea matInput rows="3" formControlName="description" required></textarea>
     </mat-form-field>
 
-    <mat-form-field appearance="outline" style="width:100%">
+    <mat-form-field appearance="outline">
       <mat-label>URL slike</mat-label>
       <input matInput formControlName="image" required />
     </mat-form-field>
